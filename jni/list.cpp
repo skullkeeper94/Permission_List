@@ -1,27 +1,10 @@
-package com.skullkeeper94.permissionlist;
+#include <string.h>
+#include <jni.h>
 
-import android.app.Activity;
-import android.widget.TextView;
-import android.os.Bundle;
-
-
-public class list extends Activity
+extern "C"
 {
-    @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-
-        TextView  tv = new TextView(this);
-        tv.setText( stringFromJNI() );
-        setContentView(tv);
-    }
-
-    public native String  stringFromJNI();
-
-    public native String  unimplementedStringFromJNI();
-
-    static {
-        System.loadLibrary("list");
-    }
+	JNIEXPORT jstring JNICALL Java_com_skullkeeper94_permissionlist_list_stringFromJNI(JNIEnv* env, jobject thiz)
+	{
+		return env->NewStringUTF("TODO: Add categories before adding seperate tabs for the permissions.");
+	}
 }
